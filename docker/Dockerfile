@@ -1,5 +1,6 @@
 FROM philipschlender/ubuntu:latest
 
+ARG GROUP=user
 ARG USER=user
 
 RUN set -e -u -x; \
@@ -24,5 +25,5 @@ RUN set -e -u -x; \
     ln --symbolic /home/${USER}/steamcmd/linux64/steamclient.so /usr/lib/x86_64-linux-gnu/steamclient.so; \
     ln --symbolic /home/${USER}/steamcmd/linux64/steamcmd /home/${USER}/steamcmd/linux64/steam; \
     ln --symbolic /home/${USER}/steamcmd/steamcmd.sh /home/${USER}/steamcmd/steam.sh; \
-    chown --recursive ${USER}:${USER} /home/${USER}/.steam; \
-    chown --recursive ${USER}:${USER} /home/${USER}/steamcmd
+    chown --recursive ${USER}:${GROUP} /home/${USER}/.steam; \
+    chown --recursive ${USER}:${GROUP} /home/${USER}/steamcmd
